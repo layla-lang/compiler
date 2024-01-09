@@ -1,6 +1,5 @@
 module Ares.Compiler.Parser.Tests.TestUtils
 
-open System
 open Ares.Compiler.Parser.Syntax.Common
 open Ares.Compiler.Parser.Syntax.Context
 open Ares.Compiler.Parser.Syntax.Expression

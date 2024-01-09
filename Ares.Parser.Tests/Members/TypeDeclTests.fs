@@ -1,10 +1,8 @@
 module Ares.Compiler.Parser.Tests.Members.TypeDeclTests
 
-open System
 open Ares.Compiler.Parser.Syntax
 open Ares.Compiler.Parser.Syntax.Expression
 open Ares.Compiler.Parser.Syntax.Member
-open Ares.Compiler.Parser.Syntax.TypeConstraint
 open Ares.Compiler.Parser.Tests.Members.Common
 open Xunit
 open FsUnit.Xunit

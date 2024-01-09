@@ -6,7 +6,6 @@ open Ares.Compiler.Parser.Syntax.Common
 open Xunit
 open FParsec
 open Ares.Compiler.Parser.Syntax.Value
-open Ares.Compiler.Parser.Internal.ValueParser
 open Ares.Compiler.Parser.Internal.ExpressionParser
 open Ares.Compiler.Parser.Tests.TestUtils
 

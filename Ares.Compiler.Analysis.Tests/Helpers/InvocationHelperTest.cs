@@ -3,6 +3,7 @@ using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
 using Ares.Compiler.Analysis.Helpers;
 using Ares.Compiler.Checkpoints;
+using Ares.Compiler.Parser;
 using Ares.Compiler.Tokens;
 
 namespace Ares.Compiler.Tests.Analysis.Helpers;
@@ -38,7 +39,8 @@ public class InvocationHelperTest
     [Fact]
     public void SelectsMatchingNonGenericType()
     {
-        var invocation = (InvocationExpressionToken)ExpressionToken.Parse("IsPalindrome(3)");
+
+        var invocation = (InvocationExpressionToken)TokenParser.ParseToken<ExpressionToken>("IsPalindrome(3)");
         var req = invocation.ToResolveMethodRequest(context);
         var methodResponse = InvocationHelper.FindInvokedMethod(context, req);
         
@@ -48,7 +50,7 @@ public class InvocationHelperTest
     [Fact]
     public void SelectsExactTypeArgMatch()
     {
-        var invocation = (InvocationExpressionToken)ExpressionToken.Parse("Square<Int>(3)");
+        var invocation = (InvocationExpressionToken)TokenParser.ParseToken<ExpressionToken>("Square<Int>(3)");
         var req = invocation.ToResolveMethodRequest(context);
         var methodResponse = InvocationHelper.FindInvokedMethod(context, req);
         
@@ -58,7 +60,7 @@ public class InvocationHelperTest
     [Fact]
     public void InfersTypeArgMatch()
     {
-        var invocation = (InvocationExpressionToken)ExpressionToken.Parse("Square(3)");
+        var invocation = (InvocationExpressionToken)TokenParser.ParseToken<ExpressionToken>("Square(3)");
         var req = invocation.ToResolveMethodRequest(context);
         var methodResponse = InvocationHelper.FindInvokedMethod(context, req);
         

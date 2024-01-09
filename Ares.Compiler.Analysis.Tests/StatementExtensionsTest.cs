@@ -2,6 +2,7 @@ using System.Collections.Immutable;
 using Ares.Compiler.Analysis;
 using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
+using Ares.Compiler.Parser;
 using Ares.Compiler.Tokens;
 
 namespace Ares.Compiler.Tests.Analysis;
@@ -11,7 +12,7 @@ public class StatementExtensionsTest
     [Fact]
     public void VarDeclarationAddsToValuesTable()
     {
-        var stmt = (VariableDeclarationStatementToken)StatementToken.Parse("var x = 4;");
+        var stmt = (VariableDeclarationStatementToken)TokenParser.ParseToken<StatementToken>("var x = 4;");
         var analyzer = new SourceAnalyzer();
         var ctx = analyzer.AnalyzeStatement(stmt);
 
@@ -23,7 +24,7 @@ public class StatementExtensionsTest
     [Fact]
     public void VarDeclarationWithFuncValueAddsToValuesAndMethodsTable()
     {
-        var stmt = (VariableDeclarationStatementToken)StatementToken.Parse("var squarer = (Int x) => x * x;");
+        var stmt = (VariableDeclarationStatementToken)TokenParser.ParseToken<StatementToken>("var squarer = (Int x) => x * x;");
         var analyzer = new SourceAnalyzer();
         var ctx = analyzer.AnalyzeStatement(stmt);
 
@@ -43,7 +44,7 @@ public class StatementExtensionsTest
     [Fact]
     public void TypeDeclarationAddsToTypesTable()
     {
-        var stmt = (TypeDeclarationStatementToken)StatementToken.Parse("type Number = Int | Float;");
+        var stmt = (TypeDeclarationStatementToken)TokenParser.ParseToken<StatementToken>("type Number = Int | Float;");
         var analyzer = new SourceAnalyzer();
         var ctx = analyzer.AnalyzeStatement(stmt);
 

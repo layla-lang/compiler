@@ -75,7 +75,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ares.Compiler.Parser\Ares.Compiler.Parser.fsproj" />
+    <ProjectReference Include="..\Ares.Parser\Ares.Parser.fsproj" />
   </ItemGroup>
 
 </Project>
