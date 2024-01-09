@@ -4,16 +4,27 @@ namespace Ares.Compiler.Analysis.Entities.Types;
 
 public class PrimitiveTypeEntity : TypeEntity, IEquatable<PrimitiveTypeEntity>
 {
-    public PrimitiveTypeEntity(string primitiveName, SyntaxToken token) : base(TypeEntityKind.Primitive, token)
+    public PrimitiveTypeEntity(PrimitiveTypeKind primitiveTypeKind, SyntaxToken token) : base(TypeEntityKind.Primitive, token)
     {
-        this.PrimitiveName = primitiveName;
+        this.PrimitiveKind = primitiveTypeKind;
     }
-    
-    public string PrimitiveName { get; init; }
+
+    public string PrimitiveName => PrimitiveKind.ToPrimitiveName();
+    public PrimitiveTypeKind PrimitiveKind { get; init; }
     public override string Name => PrimitiveName;
     public override TypeEntity ProvideTypeArgument(TypeArgEntity tp, TypeEntity v) => this;
     public override bool IsClosed => true;
 
+    
+    public class BoolTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.Bool, null);
+    public class ByteTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.Byte, null);
+    public class IntTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.Int, null);
+    public class FloatTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.Float, null);
+    public class DoubleTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.Double, null);
+    public class BigNumTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.BigNum, null);
+    public class CharTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.Char, null);
+    public class StringTypeEntity() : PrimitiveTypeEntity(PrimitiveTypeKind.String, null);
+    
     #region "Equality"
     
     public bool Equals(PrimitiveTypeEntity other)

@@ -22,10 +22,14 @@ public abstract class TypeEntity : ILookupable, ICheckpointable, IEquatable<Type
     
     public static TypeEntity Any => new AnyTypeEntity(null);
     public static TypeEntity Never => new NeverTypeEntity(null);
-    public static TypeEntity Int => new PrimitiveTypeEntity("Int", null);
-    public static TypeEntity Float => new PrimitiveTypeEntity("Float", null);
-    public static TypeEntity Bool => new PrimitiveTypeEntity("Bool", null);
-    public static TypeEntity String => new PrimitiveTypeEntity("String", null);
+    public static TypeEntity Bool => new PrimitiveTypeEntity.BoolTypeEntity();
+    public static TypeEntity Byte => new PrimitiveTypeEntity.ByteTypeEntity();
+    public static TypeEntity Int => new PrimitiveTypeEntity.IntTypeEntity();
+    public static TypeEntity Float => new PrimitiveTypeEntity.FloatTypeEntity();
+    public static TypeEntity Double => new PrimitiveTypeEntity.DoubleTypeEntity();
+    public static TypeEntity BigNum => new PrimitiveTypeEntity.BigNumTypeEntity();
+    public static TypeEntity Char => new PrimitiveTypeEntity.CharTypeEntity();
+    public static TypeEntity String => new PrimitiveTypeEntity.StringTypeEntity();
 
     public static IImmutableDictionary<string, TypeEntity> Primitives => ImmutableList.Create<TypeEntity>()
         .Add(Int)

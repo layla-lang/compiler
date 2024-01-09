@@ -4,11 +4,17 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Ares.Compiler.Analysis\Ares.Compiler.Analysis.csproj" />
-    <ProjectReference Include="..\Ares.Runtime\Ares.Runtime.csproj" />
+    <ProjectReference Include="..\Ares.Compiler.Tables\Ares.Compiler.Tables.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="2.5.140" />
+    <PackageReference Include="System.Runtime.Caching" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

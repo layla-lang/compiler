@@ -8,13 +8,14 @@ public class PrimitiveTypeEntityTest
     [Fact]
     public void PrimitiveTypesEqualityWorksCorrectly()
     {
-        var p1 = new PrimitiveTypeEntity("hi", null);
-        var p2 = new PrimitiveTypeEntity("hi", null);
-        var p3 = new PrimitiveTypeEntity("hello", null);
+        var p1 = TypeEntity.Bool;
+        var p2 = TypeEntity.Byte;
+        var p3 = TypeEntity.String;
         
         Assert.Equal(p1, p2);
         Assert.NotEqual(p2, p3);
-        var ls = new List<PrimitiveTypeEntity>(new[] { p1, p2, p3 }).Distinct().ToList();
+        var ls = new List<TypeEntity>(new[] { p1, p2, p3 })
+            .Cast<PrimitiveTypeEntity>().Distinct().ToList();
         Assert.Equal(2, ls.Count);
         Assert.Contains(ls, (f) => f == p1);
         Assert.Contains(ls, (f) => f == p3);
@@ -23,7 +24,7 @@ public class PrimitiveTypeEntityTest
     [Fact]
     public void PrimitiveTypeEqualityWorksCorrectly()
     {
-        var p = new PrimitiveTypeEntity("String", null);
+        var p = TypeEntity.String;
         
         Assert.True(p == TypeEntity.String);
         Assert.True(TypeEntity.String == p);
