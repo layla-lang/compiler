@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="State.fs" />
+    <Compile Include="Syntax\Common.fs" />
+    <Compile Include="Syntax\Value.fs" />
+    <Compile Include="Syntax\Expression.fs" />
+    <Compile Include="Syntax\Statement.fs" />
+    <Compile Include="Syntax\TypeConstraint.fs" />
+    <Compile Include="Syntax\Member.fs" />
+    <Compile Include="Syntax\Context.fs" />
+    <Compile Include="Internal\ParserUtils.fs" />
+    <Compile Include="Internal\CommonParsers.fs" />
+    <Compile Include="Internal\ValueParser.fs" />
+    <Compile Include="Internal\ExpressionParser.fs" />
+    <Compile Include="Internal\TypeParamParser.fs" />
+    <Compile Include="Internal\StatementParser.fs" />
+    <Compile Include="Internal\TypeConstraintParser.fs" />
+    <Compile Include="Internal\MemberParser.fs" />
+    <Compile Include="Internal\ContextParser.fs" />
+    <Compile Include="Library.fs" />
+    <Content Include="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FParsec" Version="1.1.1" />
+  </ItemGroup>
+
+</Project>

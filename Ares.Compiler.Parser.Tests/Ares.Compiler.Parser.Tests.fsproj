@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="TestUtils.fs" />
+    <Compile Include="TestUtilsTests.fs" />
+    <Compile Include="Statements\Common.fs" />
+    <Compile Include="Statements\VarDeclStmtTests.fs" />
+    <Compile Include="Statements\TypeDeclStmtTests.fs" />
+    <Compile Include="Statements\BlockStmtTests.fs" />
+    <Compile Include="Statements\GeneralStmtTests.fs" />
+    <Compile Include="Statements\DestructuredVarDeclStmtTests.fs" />
+    <Compile Include="Statements\ReturnStmtTests.fs" />
+    <Compile Include="Expressions\Common.fs" />
+    <Compile Include="Expressions\ConstExprTests.fs" />
+    <Compile Include="Expressions\InvocationExprTests.fs" />
+    <Compile Include="Expressions\LambdaExprTests.fs" />
+    <Compile Include="Expressions\OperationExprTests.fs" />
+    <Compile Include="Expressions\TernaryExprTests.fs" />
+    <Compile Include="Expressions\CastExprTests.fs" />
+    <Compile Include="Expressions\ObjectExprTests.fs" />
+    <Compile Include="Expressions\TupleExprTests.fs" />
+    <Compile Include="Expressions\ArrayExprTests.fs" />
+    <Compile Include="Expressions\IsTypeExprTests.fs" />
+    <Compile Include="Identifiers\Common.fs" />
+    <Compile Include="Identifiers\SimpleIdTests.fs" />
+    <Compile Include="Identifiers\MemberAccessTests.fs" />
+    <Compile Include="Identifiers\IndexAccessTests.fs" />
+    <Compile Include="Values\Common.fs" />
+    <Compile Include="Values\LiteralValTests.fs" />
+    <Compile Include="TypeDescriptors\Common.fs" />
+    <Compile Include="TypeDescriptors\TypeRefTdTests.fs" />
+    <Compile Include="TypeDescriptors\RecordTdTests.fs" />
+    <Compile Include="TypeDescriptors\UnionTdTests.fs" />
+    <Compile Include="TypeDescriptors\IntersectionTdTests.fs" />
+    <Compile Include="TypeDescriptors\FuncTdTests.fs" />
+    <Compile Include="TypeDescriptors\ArrayTdTests.fs" />
+    <Compile Include="TypeDescriptors\TupleTdTests.fs" />
+    <Compile Include="TypeDescriptors\LiteralTdTests.fs" />
+    <Compile Include="TypeDescriptors\IndexedTdTests.fs" />
+    <Compile Include="TypeDescriptors\NeverTdTests.fs" />
+    <Compile Include="TypeDescriptors\TypeParamTdTests.fs" />
+    <Compile Include="TypeParams\Common.fs" />
+    <Compile Include="TypeParams\NoConstraintTpTests.fs" />
+    <Compile Include="TypeParams\GeneralTypeParamTests.fs" />
+    <Compile Include="Context\Common.fs" />
+    <Compile Include="Context\TopOfFileContextTests.fs" />
+    <Compile Include="Members\Common.fs" />
+    <Compile Include="Members\FunctionTests.fs" />
+    <Compile Include="Members\TypeDeclTests.fs" />
+    <Compile Include="TypeConstraints\Common.fs" />
+    <Compile Include="TypeConstraints\IsClosedOverTcTests.fs" />
+    <Compile Include="TypeConstraints\ExtendsTcTests.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FsUnit.xUnit" Version="5.6.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
+    <PackageReference Include="xunit" Version="2.6.4" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ares.Compiler.Parser\Ares.Compiler.Parser.fsproj" />
+  </ItemGroup>
+
+</Project>

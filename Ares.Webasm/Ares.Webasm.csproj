@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <OutputType>Exe</OutputType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WasmMainJSPath>main.js</WasmMainJSPath>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json.FSharp" Version="3.2.2" />
+    <PackageReference Include="Wasi.Sdk" Version="0.1.4-preview.10020" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ares.Compiler\Ares.Compiler.csproj" />
+  </ItemGroup>
+
+</Project>
