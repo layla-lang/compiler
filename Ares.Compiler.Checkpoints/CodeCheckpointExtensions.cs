@@ -1,4 +1,4 @@
-using Ares.Compiler.Analysis.Tables;
+using Ares.Compiler.Tables;
 
 namespace Ares.Compiler.Checkpoints;
 

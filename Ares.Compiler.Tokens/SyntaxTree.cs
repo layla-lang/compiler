@@ -1,5 +1,4 @@
 using System.Text;
-using Newtonsoft.Json;
 
 namespace Ares.Compiler.Tokens;
 
@@ -12,8 +11,8 @@ public record SyntaxTree : SyntaxToken
         this.code = code;
     }
 
-    [JsonIgnore] public override SyntaxTree Tree => this;
-    [JsonIgnore] public override SourceCode Code => code;
+    public override SyntaxTree Tree => this;
+    public override SourceCode Code => code;
     public override string SyntaxText => Code.Code;
     
     public SyntaxToken? Token { get; set; }

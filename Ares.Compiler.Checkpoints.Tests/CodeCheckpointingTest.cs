@@ -1,7 +1,6 @@
-using Ares.Compiler.Analysis.Entities;
-using Ares.Compiler.Checkpoints;
+using Xunit;
 
-namespace Ares.Compiler.Tests.Checkpoints;
+namespace Ares.Compiler.Checkpoints.Tests;
 
 public class CodeCheckpointingTest
 {

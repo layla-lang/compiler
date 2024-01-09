@@ -1,4 +1,4 @@
-namespace Ares.Module;
+namespace Ares.Module.Inline;
 
 [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
 public sealed class InlineModuleAttribute : Attribute

@@ -1,5 +1,6 @@
 # Common IntelliJ Platform excludes
 
+.idea/
 **/.idea/**/workspace.xml
 **/.idea/**/tasks.xml
 **/.idea/shelf/*
@@ -27,6 +28,9 @@
 [Oo]bj/
 _UpgradeReport_Files/
 [Pp]ackages/
+
+**/.coverage
+**/.coveragereport
 
 Thumbs.db
 Desktop.ini

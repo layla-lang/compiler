@@ -1,6 +1,6 @@
 using System.Reflection;
 using Ares.Compiler.Analysis;
-using Ares.Compiler.Analysis.Tables;
+using Ares.Compiler.Tables;
 
 namespace Ares.Compiler.IO;
 

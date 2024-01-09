@@ -1,6 +1,7 @@
 using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
 using Ares.Compiler.Checkpoints;
+using Xunit;
 
 namespace Ares.Compiler.Tests.Analysis;
 

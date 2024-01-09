@@ -1,6 +1,4 @@
-using Ares.Compiler.Tokens;
-
-namespace Ares.Compiler.Analysis.Tables;
+namespace Ares.Compiler.Tables;
 
 public record CheckpointIndex
 {
@@ -11,16 +9,6 @@ public record CheckpointIndex
     }
     public int Start { get; }
     public int Length { get; }
-
-    public static CheckpointIndex? FromTokenOrNull(SyntaxToken token)
-    {
-        if (token?.Slice?.StartIndex == null)
-        {
-            return null;
-        }
-        return new CheckpointIndex(token.Slice.StartIndex, token.Slice.Length);
-    }
-
 }
 
 public interface ICheckpointable

@@ -1,5 +1,4 @@
 using System.Collections.Immutable;
-using Ares.Compiler.Analysis;
 using Ares.Compiler.Parser.Syntax;
 using Ares.Compiler.Tokens;
 

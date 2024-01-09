@@ -1,6 +1,5 @@
-namespace Ares.Compiler.Checkpoints;
+using System.Runtime.CompilerServices;
 
-public class AssemblyInfo
-{
-    
-}
+[assembly: InternalsVisibleTo("Ares.Compiler.Analysis.Tests")]
+[assembly: InternalsVisibleTo("Ares.Compiler")]
+[assembly: InternalsVisibleTo("Ares.Compiler.Tests")]

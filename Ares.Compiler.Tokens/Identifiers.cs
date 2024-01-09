@@ -1,8 +1,3 @@
-using Ares.Compiler.Parser;
-using Ares.Compiler.Parser.Syntax;
-using Ares.Compiler.Transformer;
-using Newtonsoft.Json;
-
 namespace Ares.Compiler.Tokens;
 
 using System.Collections.Immutable;
@@ -14,11 +9,8 @@ public enum IdentifierTokenType
     MemberAccess
 }
 
-public abstract record IdentifierToken([JsonProperty(Order = 1)] IdentifierTokenType IdentifierType) : SyntaxToken()
+public abstract record IdentifierToken(IdentifierTokenType IdentifierType) : SyntaxToken()
 {
-    public static IdentifierToken Parse(string code) => TokenParser.ParseToken<IdentifierToken>(code);
-    public static explicit operator IdentifierToken(Expression.IdentifierSyntaxElement syntax) =>
-        IdentifierTransformer.TransformIdentifier(syntax);
 }
 
 public record SimpleIdentifierToken(string Text) : IdentifierToken(IdentifierTokenType.Simple);

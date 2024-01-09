@@ -1,4 +1,4 @@
-namespace Ares.Compiler.Module.Sources;
+namespace Ares.Module.Sources;
 
 public class StreamModuleSource : ModuleSource
 {

@@ -2,6 +2,7 @@ using System.Collections.Immutable;
 using Ares.Compiler.Analysis.Entities.Types;
 using Ares.Compiler.Analysis.Entities.Types.TypeArgs;
 using Ares.Compiler.Tokens;
+using Xunit;
 
 namespace Ares.Compiler.Tests.Analysis.Entities.Types;
 

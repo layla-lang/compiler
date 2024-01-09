@@ -2,6 +2,7 @@ using Ares.Compiler.Analysis;
 using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
 using Ares.Compiler.Analysis.Helpers;
+using Xunit;
 
 namespace Ares.Compiler.Tests.Analysis.Helpers;
 

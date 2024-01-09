@@ -1,7 +1,4 @@
-using Ares.Compiler.Parser;
 using Ares.Compiler.Parser.Syntax;
-using Ares.Compiler.Transformer;
-using Newtonsoft.Json;
 
 namespace Ares.Compiler.Tokens;
 
@@ -23,13 +20,9 @@ public enum TypeDescriptorType
     Indexed
 }
 
-public abstract record TypeDescriptorToken([JsonProperty(Order = 1)] TypeDescriptorType TypeDescriptorType)
+public abstract record TypeDescriptorToken(TypeDescriptorType TypeDescriptorType)
     : SyntaxToken()
 {
-
-    public static TypeDescriptorToken Parse(string code) => TokenParser.ParseToken<TypeDescriptorToken>(code);
-    public static explicit operator TypeDescriptorToken(Expression.TypeDescriptorSyntaxElement syntax) =>
-        TypeDescriptorTransformer.TransformTypeDescriptor(syntax);
 }
 
 public record NeverTypeDescriptorToken() : TypeDescriptorToken(TypeDescriptorType.Never);

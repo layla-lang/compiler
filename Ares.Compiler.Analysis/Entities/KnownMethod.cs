@@ -2,7 +2,7 @@ using System.Collections.Immutable;
 using System.Text;
 using Ares.Compiler.Analysis.Entities.Types;
 using Ares.Compiler.Analysis.Entities.Types.TypeArgs;
-using Ares.Compiler.Analysis.Tables;
+using Ares.Compiler.Tables;
 using Ares.Compiler.Tokens;
 
 namespace Ares.Compiler.Analysis.Entities;
@@ -25,7 +25,7 @@ public record KnownMethod : ILookupable, ICheckpointable, IScoping
         this.ReturnType = returnType;
         this.ScopedContext = scopedContext;
         this.SourceToken = token;
-        this.Index = CheckpointIndex.FromTokenOrNull(token);
+        this.Index = token!.ToCheckpoint();
     }
     
     public string MethodName { get; init; }

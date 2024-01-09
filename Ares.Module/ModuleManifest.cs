@@ -1,4 +1,4 @@
-namespace Ares.Compiler.Module;
+namespace Ares.Module;
 
 public class ModuleManifest
 {

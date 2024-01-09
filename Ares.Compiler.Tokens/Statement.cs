@@ -1,8 +1,4 @@
 using System.Collections.Immutable;
-using Ares.Compiler.Parser;
-using Ares.Compiler.Parser.Syntax;
-using Ares.Compiler.Transformer;
-using Newtonsoft.Json;
 
 namespace Ares.Compiler.Tokens;
 
@@ -15,11 +11,8 @@ public enum StatementTokenType
     Return
 }
 
-public abstract record StatementToken([JsonProperty(Order = 1)] StatementTokenType StatementType) : SyntaxToken
+public abstract record StatementToken(StatementTokenType StatementType) : SyntaxToken
 {
-    public static StatementToken Parse(string code) => TokenParser.ParseToken<StatementToken>(code);
-    public static explicit operator StatementToken(Statement.StatementSyntaxElement syntax) =>
-        StatementTransformer.TransformStatement(syntax);
 }
 
 
@@ -29,7 +22,7 @@ public enum DeclarationTypeType
     TypeDescriptor
 }
 
-public abstract record DeclarationTypeToken([JsonProperty(Order = 1)] DeclarationTypeType DeclarationTypeType);
+public abstract record DeclarationTypeToken(DeclarationTypeType DeclarationTypeType);
 
 public record BlockStatementToken(IImmutableList<StatementToken> Statements) : StatementToken(StatementTokenType.Block);
 

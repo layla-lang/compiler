@@ -5,6 +5,7 @@ using Ares.Compiler.Analysis.Helpers;
 using Ares.Compiler.Checkpoints;
 using Ares.Compiler.Parser;
 using Ares.Compiler.Tokens;
+using Xunit;
 
 namespace Ares.Compiler.Tests.Analysis.Helpers;
 

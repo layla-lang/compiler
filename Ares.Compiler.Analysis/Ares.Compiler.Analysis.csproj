@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Types\Refinements\" />
+    <Folder Include="Inhabitation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ares.Compiler.Tables\Ares.Compiler.Tables.csproj" />
+    <ProjectReference Include="..\Ares.Compiler.Tokens\Ares.Compiler.Tokens.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,11 +1,9 @@
 using System.Collections.Immutable;
 using Ares.Compiler.Analysis.Entities.Types.TypeArgs;
-using Ares.Compiler.Analysis.Tables;
+using Ares.Compiler.Tables;
 using Ares.Compiler.Tokens;
 
 namespace Ares.Compiler.Analysis.Entities.Types;
-
-
 
 public class AliasedTypeEntity : TypeEntity, IAliased, IEquatable<AliasedTypeEntity>
 {

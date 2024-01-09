@@ -1,4 +1,4 @@
-namespace Ares.Compiler.Analysis.Tables;
+namespace Ares.Compiler.Tables;
 
 public record Scope(string Name)
 {

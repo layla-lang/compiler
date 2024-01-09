@@ -1,8 +1,3 @@
-using Ares.Compiler.Parser;
-using Ares.Compiler.Parser.Syntax;
-using Ares.Compiler.Transformer;
-using Newtonsoft.Json;
-
 namespace Ares.Compiler.Tokens;
 
 public enum ValueTokenType
@@ -13,12 +8,8 @@ public enum ValueTokenType
     StringLiteral
 }
 
-public abstract record ValueToken([JsonProperty(Order = 1)] ValueTokenType ValueType) : SyntaxToken
+public abstract record ValueToken(ValueTokenType ValueType) : SyntaxToken
 {
-
-    public static ValueToken Parse(string code) => TokenParser.ParseToken<ValueToken>(code);
-    public static explicit operator ValueToken(Value.ValueSyntaxElement syntax) =>
-        ValueTransformer.TransformValue(syntax);
 }
 
 public record IntLiteralValueToken(int Value) : ValueToken(ValueTokenType.IntLiteral);

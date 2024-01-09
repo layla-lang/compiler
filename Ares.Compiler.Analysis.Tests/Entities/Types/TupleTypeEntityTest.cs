@@ -1,5 +1,6 @@
 using System.Collections.Immutable;
 using Ares.Compiler.Analysis.Entities.Types;
+using Xunit;
 
 namespace Ares.Compiler.Tests.Analysis.Entities.Types;
 

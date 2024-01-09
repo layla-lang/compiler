@@ -1,6 +1,5 @@
 using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
-using Ares.Compiler.Analysis.Tables;
 using Ares.Compiler.Tables;
 using Xunit;
 

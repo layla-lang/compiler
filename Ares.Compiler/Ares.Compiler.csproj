@@ -13,13 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ares.Compiler.Parser\Ares.Compiler.Parser.fsproj" />
+    <ProjectReference Include="..\Ares.Compiler.Analysis\Ares.Compiler.Analysis.csproj" />
+    <ProjectReference Include="..\Ares.Compiler.Checkpoints\Ares.Compiler.Checkpoints.csproj" />
+    <ProjectReference Include="..\Ares.Compiler.Tokens\Ares.Compiler.Tokens.csproj" />
+    <ProjectReference Include="..\Ares.Parser\Ares.Parser.fsproj" />
     <ProjectReference Include="..\Ares.Compiler.TypeScriptGenerator\Ares.Compiler.TypeScriptGenerator.csproj"
                       OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Analysis\Inhabitation\" />
   </ItemGroup>
 
 </Project>

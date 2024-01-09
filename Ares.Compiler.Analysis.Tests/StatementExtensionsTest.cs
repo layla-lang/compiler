@@ -4,6 +4,7 @@ using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
 using Ares.Compiler.Parser;
 using Ares.Compiler.Tokens;
+using Xunit;
 
 namespace Ares.Compiler.Tests.Analysis;
 

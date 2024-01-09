@@ -8,6 +8,7 @@ namespace Ares.Compiler.Parser;
 
 public static class TokenParser
 {
+    private static readonly Type ParserExtensionsType = typeof(ParserExtensions);
     private static readonly IImmutableDictionary<Type, Func<string, object>> expressionFactoryDict;
 
     static TokenParser()
@@ -29,11 +30,9 @@ public static class TokenParser
         var tokenTypeWithOperator = GetTypeWithOperator(tt);
         var castOperator = GetOperator(tokenTypeWithOperator);
         var castParameterType = castOperator.GetParameters().First().ParameterType;
-        var factory = expressionFactoryDict
-            .First(kvp => castParameterType == kvp.Key)
-            .Value;
+        var factory = expressionFactoryDict[castParameterType];
         var element = (Common.SyntaxElement)factory(code);
-        var castMethod = tokenTypeWithOperator.GetMethod("op_Explicit", BindingFlags.Public | BindingFlags.Static,
+        var castMethod = ParserExtensionsType.GetMethod("AsToken", BindingFlags.Public | BindingFlags.Static,
             new Type[] { element.GetType() })!;
         var token = (SyntaxToken)castMethod.Invoke(null, new[] { element })!;
         var tree = new SyntaxTree(new SourceCode("module", code));
@@ -54,9 +53,9 @@ public static class TokenParser
         return t;
     }
 
-    internal static MethodInfo GetOperator(Type tokenType) => tokenType
+    internal static MethodInfo GetOperator(Type tokenType) => ParserExtensionsType
         .GetMethods(BindingFlags.Public | BindingFlags.Static)
-        .Where(m => m.Name == "op_Explicit")
+        .Where(m => m.Name == "AsToken")
         .Where(m => m.ReturnType == tokenType)
         .First(m =>
         {

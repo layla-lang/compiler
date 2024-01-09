@@ -1,4 +1,4 @@
-namespace Ares.Compiler.Analysis.Tables;
+namespace Ares.Compiler.Tables;
 
 public interface ILookupable
 {

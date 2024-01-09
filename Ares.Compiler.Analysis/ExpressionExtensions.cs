@@ -2,7 +2,6 @@ using System.Collections.Immutable;
 using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
 using Ares.Compiler.Analysis.Helpers;
-using Ares.Compiler.Analysis.Tables;
 using Ares.Compiler.Tokens;
 
 namespace Ares.Compiler.Analysis;
@@ -45,7 +44,7 @@ public static class ExpressionExtensions
             var expType = TypeOf(i.AccessExpression, context);
             return TypeDescriptorExtensions.TypeOfIndexedType(arrVal.Type, expType, context);
         }
-        var kt = context.Values[v.Identifier];
+        var kt = context.Values[v.Identifier.SyntaxText];
         if (!kt.HasValue)
         {
             throw new ArgumentException($"Unknown constant expression token: {v}");

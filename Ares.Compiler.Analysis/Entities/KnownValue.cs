@@ -1,6 +1,5 @@
-using Ares.Compiler.Analysis.Entities;
 using Ares.Compiler.Analysis.Entities.Types;
-using Ares.Compiler.Analysis.Tables;
+using Ares.Compiler.Tables;
 using Ares.Compiler.Tokens;
 
 namespace Ares.Compiler.Analysis.Entities;
@@ -12,7 +11,7 @@ public record KnownValue : ILookupable, ICheckpointable
         this.Name = name;
         this.Type = typeEntity;
         this.Token = token;
-        this.Index = CheckpointIndex.FromTokenOrNull(token);
+        this.Index = token.ToCheckpoint();
     }
 
     public string Name { get; }

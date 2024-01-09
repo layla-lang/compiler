@@ -23,14 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ares.Compiler.Checkpoints\Ares.Compiler.Checkpoints.csproj" />
     <ProjectReference Include="..\Ares.Compiler\Ares.Compiler.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="ReportGenerator" Version="5.2.0" />
-  </ItemGroup>
-  
-  <Target Name="GenerateHtmlCoverageReport" AfterTargets="GenerateCoverageResultAfterTest">
-    <ReportGenerator ReportFiles="@(CoverletReport)" TargetDirectory="../html-coverage-report" />
-  </Target>
 </Project>

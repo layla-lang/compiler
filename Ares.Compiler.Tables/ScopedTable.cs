@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Immutable;
-using Ares.Compiler.Tokens;
 
-namespace Ares.Compiler.Analysis.Tables;
+namespace Ares.Compiler.Tables;
 
 public class ScopedTable<T>
     : IEnumerable<T>, IEnumerable
@@ -17,7 +16,7 @@ public class ScopedTable<T>
         this.myScope = scope;
         knownFromOuterScope = ImmutableDictionary<string, ScopedResult<T>>.Empty;
     }
-    internal ScopedTable(Scope scope, IImmutableDictionary<string, T> knownTypes)
+    public ScopedTable(Scope scope, IImmutableDictionary<string, T> knownTypes)
     {
         this.myScope = scope;
         this.knownFromOuterScope = knownTypes.ToImmutableDictionary(
@@ -67,12 +66,6 @@ public class ScopedTable<T>
             return null;
         }
     }
-
-    public ScopedResult<T>? this[IdentifierToken name] => knownFromCurrentScope.ContainsKey(name.SyntaxText)
-        ? knownFromCurrentScope[name.SyntaxText]
-        : knownFromOuterScope.ContainsKey(name.SyntaxText)
-            ? knownFromOuterScope[name.SyntaxText]
-            : null;
 
     public int Count => this.knownFromCurrentScope.Count + this.knownFromOuterScope.Count;
     public int CurrentScopeCount => this.knownFromCurrentScope.Count;

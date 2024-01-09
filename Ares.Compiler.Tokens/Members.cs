@@ -1,8 +1,4 @@
 using System.Collections.Immutable;
-using Ares.Compiler.Parser;
-using Ares.Compiler.Parser.Syntax;
-using Ares.Compiler.Transformer;
-using Newtonsoft.Json;
 
 namespace Ares.Compiler.Tokens;
 
@@ -26,19 +22,13 @@ public enum FunctionReturnTypeType
     TypeDescriptor
 }
 
-public abstract record FunctionReturnTypeToken([JsonProperty(Order = 1)] FunctionReturnTypeType LambdaParameterTypeType);
+public abstract record FunctionReturnTypeToken(FunctionReturnTypeType LambdaParameterTypeType);
 public record FunctionInferredReturnTypeToken() : FunctionReturnTypeToken(FunctionReturnTypeType.Inferred);
 public record FunctionSpecifiedReturnTypeToken(TypeDescriptorToken TypeDescriptor) : FunctionReturnTypeToken(FunctionReturnTypeType.TypeDescriptor);
 
 
-public abstract record MemberToken([JsonProperty(Order = 1)] MemberTokenType MemberType) : SyntaxToken
+public abstract record MemberToken(MemberTokenType MemberType) : SyntaxToken
 {
-
-    public static MemberToken Parse(string code) => TokenParser.ParseToken<MemberToken>(code);
-    public static explicit operator MemberToken(Member.MemberSyntaxElement syntax) =>
-        MemberTransformer.TransformMember(syntax);
-    
-    
 }
 
 public record ScratchMemberToken(StatementToken Body) : MemberToken(MemberTokenType.Scratch);

@@ -1,11 +1,12 @@
 namespace Ares.Module.Inline;
 
-[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+[AttributeUsage(AttributeTargets.Parameter | AttributeTargets.ReturnValue, Inherited = false, AllowMultiple = true)]
 public class RefinementAttribute : Attribute
 {
-    public RefinementAttribute()
+    public RefinementAttribute(string refinementId)
     {
-        // TODO: Implement code here
-        throw new NotImplementedException();
+        RefinementId = refinementId;
     }
+
+    public string RefinementId { get; }
 }

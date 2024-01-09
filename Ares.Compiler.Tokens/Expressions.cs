@@ -1,8 +1,4 @@
 using System.Collections.Immutable;
-using Ares.Compiler.Parser;
-using Ares.Compiler.Parser.Syntax;
-using Ares.Compiler.Transformer;
-using Newtonsoft.Json;
 
 namespace Ares.Compiler.Tokens;
 
@@ -21,12 +17,8 @@ public enum ExpressionTokenType
     Array
 }
 
-public abstract record ExpressionToken([JsonProperty(Order = 1)] ExpressionTokenType ExpressionType) : SyntaxToken()
+public abstract record ExpressionToken(ExpressionTokenType ExpressionType) : SyntaxToken()
 {
-    public static ExpressionToken Parse(string code) => TokenParser.ParseToken<ExpressionToken>(code);
-
-    public static explicit operator ExpressionToken(Expression.ExpressionSyntaxElement syntax) =>
-        ExpressionTransformer.TransformExpression(syntax);
 }
 
 public record ConstantExpressionToken(ValueToken Value) : ExpressionToken(ExpressionTokenType.Constant);
@@ -57,7 +49,7 @@ public enum LambdaParameterTypeType
     TypeDescriptor
 }
 
-public abstract record LambdaParameterTypeToken([JsonProperty(Order = 1)] LambdaParameterTypeType LambdaParameterTypeType);
+public abstract record LambdaParameterTypeToken(LambdaParameterTypeType LambdaParameterTypeType);
 public record LambdaInferredParameterTypeToken() : LambdaParameterTypeToken(LambdaParameterTypeType.Inferred);
 public record SpecifiedLambdaParameterTypeToken(TypeDescriptorToken TypeDescriptor) : LambdaParameterTypeToken(LambdaParameterTypeType.TypeDescriptor);
 

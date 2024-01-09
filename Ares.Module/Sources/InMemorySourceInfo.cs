@@ -1,4 +1,4 @@
-namespace Ares.Compiler.Module.Sources;
+namespace Ares.Module.Sources;
 
 internal class InMemorySourceInfo : ModuleSourceInfo
 {

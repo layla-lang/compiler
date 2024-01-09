@@ -1,7 +1,6 @@
 using System.Collections.Immutable;
-using Ares.Compiler.Analysis.Tables;
+using Ares.Compiler.Tables;
 using Ares.Compiler.Tokens;
-using Newtonsoft.Json;
 
 namespace Ares.Compiler.Analysis.Entities.Types;
 
@@ -19,9 +18,7 @@ public abstract class TypeEntity : ILookupable, ICheckpointable, IEquatable<Type
     public TypeEntityKind Kind { get; }
     public SyntaxToken Token { get; }
     
-    
-    [JsonIgnore]
-    public CheckpointIndex? Index => CheckpointIndex.FromTokenOrNull(Token);
+    public CheckpointIndex? Index => Token.ToCheckpoint();
     
     public static TypeEntity Any => new AnyTypeEntity(null);
     public static TypeEntity Never => new NeverTypeEntity(null);
